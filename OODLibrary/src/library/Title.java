@@ -15,11 +15,20 @@ public class Title {
 		articles.add(article);
 	}
 	
-	public Article loan(Member member) {
-		return null;
+	public ArrayList<Article> getArticles() {
+		return this.articles;
 	}
 	
-	public Bill bringBackArticle(Article article) {
+	public Article loan(Member member) {
+		if (articles.size() > 0) {
+			for (Article article : articles) {
+				if (article.getBorrower() == null) {
+					article.setBorrower(member);
+					return article;
+				}
+			}
+		}
+		
 		return null;
 	}
 }

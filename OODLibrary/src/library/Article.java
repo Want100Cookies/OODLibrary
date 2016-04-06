@@ -20,8 +20,8 @@ public abstract class Article {
 		this.borrower = member;
 	}
 	
-	public int getLoanPeriod() {
-		return 0;
+	public int getLoanPeriod() {		
+		return (int) Math.round((loanEnd.getTime() - loanStart.getTime()) / (double)86400000);
 	}
 	
 	public void startLoanPeriod() {

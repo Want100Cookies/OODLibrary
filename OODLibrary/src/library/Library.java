@@ -12,19 +12,27 @@ public class Library {
 	}
 	
 	public Article loan(Member member, Title title) {
-		return null;
+		return title.loan(member);
 	}
 	
-	public void payBill(Member member, Bill bill) {
-		
+	public void payBill(Bill bill) {
+		bill.pay();
 	}
 	
-	public Bill bringBackArticle(Article article) {
-		return null;
+	public void bringBackArticle(Member member, Article article) {
+		article.endLoanPeriod();
+		member.addBill(article.getBill());
 	}
 	
 	public void bringBackAllArticles(Member member) {
-		
+		for (Title title : titles){
+			for (Article article : title.getArticles()) {
+				if (article.getBorrower() == member) {
+					article.endLoanPeriod();
+					member.addBill(article.getBill());
+				}
+			}
+		}
 	}
 	
 	public ArrayList<Bill> getFines() {

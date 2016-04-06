@@ -25,11 +25,11 @@ public class Member {
 		return this.firstName + " " + this.lastName;
 	}
 	
-	public void bringBackArticle(Bill bill) {
-		
-	}
-	
 	public ArrayList<Bill> getBills() {
 		return this.bills;
+	}
+	
+	public void addBill(Bill bill) {
+		bills.add(bill);
 	}
 }
