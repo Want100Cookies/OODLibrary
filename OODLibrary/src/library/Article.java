@@ -4,12 +4,14 @@ import java.util.Date;
 
 public abstract class Article {
 	private Title title;
+	private String UID;
 	private Member borrower;
 	private Date loanStart;
 	private Date loanEnd;
 	
-	public Article(Title title) {
+	public Article(Title title, String UID) {
 		this.title = title;
+		this.UID = UID;
 	}
 	
 	public Member getBorrower() {
