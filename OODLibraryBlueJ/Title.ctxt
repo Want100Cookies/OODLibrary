@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=name
+comment0.target=Title(java.lang.String)
+comment1.params=article
+comment1.target=void\ addArticle(Article)
+comment2.params=
+comment2.target=java.util.ArrayList\ getArticles()
+comment3.params=member
+comment3.target=Article\ loan(Member)
+comment4.params=
+comment4.target=java.lang.String\ getTitle()
+comment4.text=\r\n\ extra\ method\ buiten\ class\ diagram\ om\:\r\n
+numComments=5

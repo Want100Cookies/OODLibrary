@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Library()
+comment1.params=member\ title
+comment1.target=Article\ loan(Member,\ Title)
+comment10.params=
+comment10.target=void\ addDummyData()
+comment10.text=\r\n\ Add\ dummy\ data\ method\:\r\n
+comment2.params=bill
+comment2.target=void\ payBill(Bill)
+comment3.params=member\ article
+comment3.target=void\ bringBackArticle(Member,\ Article)
+comment4.params=member
+comment4.target=void\ bringBackAllArticles(Member)
+comment5.params=
+comment5.target=java.util.ArrayList\ getFines()
+comment6.params=bills
+comment6.target=void\ sendWarningLetters(java.util.ArrayList)
+comment7.params=member
+comment7.target=void\ sendMemberToBailiff(Member)
+comment8.params=year
+comment8.target=double\ getTotalIncome(int)
+comment9.params=args
+comment9.target=void\ main(java.lang.String[])
+numComments=11
