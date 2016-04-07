@@ -66,7 +66,18 @@ public class Library {
     }
 
     public void sendMemberToBailiff(Member member) {
-
+    	System.out.println("The following member informations is send to the bailiff:");
+    	System.out.println("\tName:\t" + member.getName());
+    	
+    	double total = 0;
+    	
+    	for (Bill bill : member.getBills()) {
+    		if (bill.getType() == TypeCost.fine) {
+    			total += bill.getAmount();
+    		}
+    	}
+    	
+    	System.out.println("\tFine amount:\t" + total);
     }
 
     public double getTotalIncome(int year) { // Todo: add parameter `Bill.typeCost type`
