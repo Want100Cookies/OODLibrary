@@ -6,8 +6,8 @@ public abstract class CD extends Article {
 	protected double startAmount;
 	protected double weeklyAmount;
 	
-	public CD(Title title){
-		super(title, "wat is deasu");
+	public CD(Title title, String UID){
+		super(title, UID);
 	}
 
 	public Bill getBill() {
