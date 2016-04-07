@@ -43,9 +43,8 @@ public abstract class Article {
 	 * for testing purposes.
 	 * @param d
 	 */
-	public void setLoanPeriod(Date d){
+	public void setEndDate(Date d){
 		loanEnd = d;
-	}
 	}
 	
 	abstract Bill getBill();

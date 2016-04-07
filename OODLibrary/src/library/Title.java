@@ -37,5 +37,5 @@ public class Title {
 	 */
 	public String getTitle(){
 	   return name;
-	   }
+	}
 }

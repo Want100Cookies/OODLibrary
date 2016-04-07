@@ -18,12 +18,14 @@ public class LibraryTest {
         Title title1 = new Title("Harry Potter en de vuurbeker");
         title1.addArticle(new Roman(title1, "11"));
         title1.addArticle(new Roman(title1, "23"));
-        title1.addArticle(new Roman(title1, "30"));
+        title1.addArticle(new Popular(title1, "30"));
         lib.addTitle(title1);
         /////////////
         Title title2 = new Title("30 messteken");
-        title2.addArticle(new Roman(title2, "2"));
-        title2.addArticle(new Roman(title2, "52"));
+        Article article1 = new Roman(title2, "2");
+        title2.addArticle(article1);
+        Article article2 =  new Roman(title2, "52");
+        title2.addArticle(article2);
         lib.addTitle(title2);
         /////////////
         Title title3 = new Title("Schemer");
@@ -50,15 +52,25 @@ public class LibraryTest {
 	    Member ramon = new Member("Ramon", "Valk", "bij kevin(?)", "ramon@valkenier.com", new Date(1960, 3, 14));
 	    lib.addMember(ramon);
 	    
-	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
-	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
-	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
-	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
-	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
-	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
-	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
-	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
+	    System.out.println("Ramon leent een titel:");
+	    System.out.println(lib.loan(ramon, title2));
+	    System.out.println("Ramon leent een keer dezelfde titel:");
+	    System.out.println(lib.loan(ramon, title2));
+	    System.out.println("Ramon leent een keer dezelfde titel:");
+	    System.out.println(lib.loan(ramon, title2));
+	    
+	    System.out.println("omzet nu");
+	    System.out.println(lib.getTotalIncome(2016));
+	    System.out.println("Ramon brengt het boek terug:");
+	    article2.setEndDate(new Date(2016, 4, 9));
+	   // System.out.println(title2.getArticles().get(0).toString());
+	    lib.bringBackArticle(ramon, article2);
+	    
+	    System.out.println("omzet later");
+	    System.out.println(lib.getTotalIncome(2016));
+	    
+	    
 
-	}
+		}
 
 }
