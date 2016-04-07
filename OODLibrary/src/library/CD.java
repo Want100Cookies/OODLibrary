@@ -10,6 +10,10 @@ public abstract class CD extends Article {
 		super(title, UID);
 	}
 
+	/**
+	 * returnt de rekening voor de gehuurde CD.
+	 * startAmount en weeklyAmount wordt ingevuld door een Classical object of een Popular object.
+	 */
 	public Bill getBill() {
 		int days = this.getLoanPeriod();
 		double amount = startAmount;

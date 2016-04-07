@@ -13,9 +13,6 @@ public class Bill {
 		fine, fee
 	}
 	
-	/**
-	 * note: het gebruik van enums is kut in java
-	 */
 	public Bill(double amount, TypeCost type) {
 		this.amount = amount;
 		this.type = type;
@@ -28,14 +25,22 @@ public class Bill {
 		this.paid = true;
 	}
 	
+	/**
+	 * Is de bill al betaald?
+	 * @return true als de bill is betaald.
+	 */
 	public boolean isPaid() {
 		return this.paid;
 	}
 	
+	/**
+	 * Returnt het type, fine of fee.
+	 * @return fine of fee.
+	 */
 	public TypeCost getType() {
 		return this.type;
 	}
-	
+
 	public void giveWarning() {
 		if (!hasWarning1()) {
 			warning1 = new Date();
@@ -53,6 +58,10 @@ public class Bill {
 		return this.warning2;
 	}
 	
+	/**
+	 * returnt het bedrag van de rekening.
+	 * @return double het bedrag van de rekening.
+	 */
 	public double getAmount() {
 		return this.amount;
 	}

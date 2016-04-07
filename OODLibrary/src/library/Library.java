@@ -107,8 +107,6 @@ public class Library {
         m = new Member("Pascal", "Drewes", "Coevorden", "pascal@dreweswebdesignitis.com", new Date(1997, 6, 3));
         members.add(m);
         m = new Member("Rik", "Hassing", "1 uur fietsen", "rik@hassing.com", new Date(1985, 9, 14));
-      //  m.addBill(new Bill(10.00, "fine"));
-      //note: hoe maak ik een nieuwe bill aan?
         members.add(m);
         m = new Member("Ramon", "Valk", "bij kevin(?)", "ramon@valkenier.com", new Date(1960, 3, 14));
         members.add(m);
