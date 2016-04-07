@@ -4,14 +4,20 @@ import java.util.ArrayList;
 
 public class Title {
 	private String name;
+	private Class type;
 	private ArrayList<Article> articles;
 	
-	public Title(String name) {
+	public Title(String name, Class type) {
 		this.name = name;
+		this.type = type;
 		articles = new ArrayList<Article>();
 	}
 	
 	public void addArticle(Article article) {
+		if (article.getClass() != type) {
+			throw new IllegalArgumentException("Article is not of correct type");
+		}
+		
 		articles.add(article);
 	}
 	
