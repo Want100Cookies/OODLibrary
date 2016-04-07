@@ -2,6 +2,7 @@ package library;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Article {
 	private Title title;
@@ -28,9 +29,9 @@ public abstract class Article {
 	}
 	
 	public int getLoanPeriod() {		
-		//return (int) Math.round((loanEnd.getTime() - loanStart.getTime()) / (double)86400000);
-		//ChronoUnit.DAYS.between(startDate,endDate);
-		return (int) ChronoUnit.DAYS.between(loanStart, loanEnd);
+		long diff = loanEnd.getTime() - loanStart.getTime();//in Milli seconds
+		return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+		Days days = Days.daysBetween(start, end);
 	}
 	
 	public void startLoanPeriod() {
@@ -39,7 +40,8 @@ public abstract class Article {
 	
 	public void endLoanPeriod() {
 		if(loanEnd == null){
-		loanEnd = new Date();
+			loanEnd = new Date();
+			System.out.println("loanEnd was null");
 		}
 		setBorrower(null);
 	}
