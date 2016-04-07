@@ -11,8 +11,10 @@ public abstract class CD extends Article {
 	}
 
 	/**
-	 * returnt de rekening voor de gehuurde CD.
-	 * startAmount en weeklyAmount wordt ingevuld door een Classical object of een Popular object.
+	 * Get the calculated bill for this CD
+	 * The only difference between the the child types are the start amount and the weekly amount.
+	 * Therefore they have been added as protected fields and is the getBill method implemented in this class.
+	 * @return Bill
 	 */
 	public Bill getBill() {
 		int days = this.getLoanPeriod();

@@ -6,5 +6,8 @@ public abstract class Book extends Article {
 		super(title, UID);
 	}
 
+	/**
+	 * Abstract method for the bill
+	 */
 	abstract Bill getBill();
 }

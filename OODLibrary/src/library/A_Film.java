@@ -8,6 +8,10 @@ public class A_Film extends DVD {
 		super(title, UID);
 	}
 	
+	/**
+	 * Calculates the bill (fee)
+	 * Which is days * €2.00
+	 */
 	public Bill getBill() {
 		int days = getLoanPeriod();
 	    double amount = days * 2;
