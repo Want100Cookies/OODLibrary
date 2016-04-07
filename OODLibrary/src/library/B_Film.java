@@ -1,12 +1,31 @@
 package library;
 
 public class B_Film extends DVD {
-
-	public B_Film(Title title, String UID) {
+	protected double startAmount;
+	protected double afterThreeDays;
+	protected double total;
+	
+	public B_Film(Title title) {
 		super(title, UID);
+		
+		this.startAmount = 1.00;
+		this.afterThreeDays = 2.00;
 	}
 
 	public Bill getBill() {
-		return null;
+		int days = this.getLoanPeriod;
+		double amount = startAmount;
+		
+		if(days > 3) {
+			days = days - 3;
+			total += 3 * this.startAmount;
+			total += days * this.afterThreeDays;
+			return total;
+		}
+		else {
+			total += days * this.startAmount;
+			return total;
+		}
+		
 	}
 }
