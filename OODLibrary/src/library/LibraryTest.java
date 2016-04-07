@@ -20,6 +20,7 @@ public class LibraryTest {
         title1.addArticle(new Roman(title1, "23"));
         title1.addArticle(new Roman(title1, "30"));
         lib.addTitle(title1);
+        
         /////////////
         Title<Roman> title2 = new Title("30 messteken");
         Roman article1 = new Roman(title2, "2");
@@ -27,6 +28,7 @@ public class LibraryTest {
         Roman article2 =  new Roman(title2, "52");
         title2.addArticle(article2);
         lib.addTitle(title2);
+        
         /////////////
         Title<A_Film> title3 = new Title("Schemer");
         title3.addArticle(new A_Film(title3, "0"));
@@ -40,6 +42,7 @@ public class LibraryTest {
         title4.addArticle(new Popular(title4, "991"));
         lib.addTitle(title4);
         ////////////
+        
 	    Member jenno = new Member("Jenno", "Vink", "Thuis", "jenno@vinkict.nl", new Date(1996, 9, 14));
 	    lib.addMember(jenno);
 	    Member lesley = new Member("Lesley Jordan", "van Oostenrijk", "In tha hood", "lessy@panamapapers.com", new Date(1992, 9, 14));
@@ -47,16 +50,16 @@ public class LibraryTest {
 	    Member pascal = new Member("Pascal", "Drewes", "Coevorden", "pascal@dreweswebdesignitis.com", new Date(1997, 6, 3));
 	    lib.addMember(pascal);
 	    Member rik = new Member("Rik", "Hassing", "1 uur fietsen", "rik@hassing.com", new Date(1985, 9, 14));
-	    lib.addMember(rik);
-	       
+	    lib.addMember(rik);	       
 	    Member ramon = new Member("Ramon", "Valk", "bij kevin(?)", "ramon@valkenier.com", new Date(1960, 3, 14));
 	    lib.addMember(ramon);
 	    
-	    System.out.println("Ramon leent een titel:");
+	    
+	    System.out.print("Ramon leent een titel:");
 	    System.out.println(lib.loan(ramon, title2));
-	    System.out.println("Ramon leent een keer dezelfde titel:");
-	    System.out.println(lib.loan(ramon, title2));
-	    System.out.println("Ramon leent een keer dezelfde titel:");
+	    System.out.print("Ramon leent een keer dezelfde titel:");
+	    System.out.print(lib.loan(ramon, title2));
+	    System.out.print("Ramon leent een keer dezelfde titel:");
 	    System.out.println(lib.loan(ramon, title2));
 	    
 	    System.out.println("omzet nu");

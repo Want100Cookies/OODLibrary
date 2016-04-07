@@ -35,12 +35,7 @@ public class Library {
         for (Title title : titles){
             for (Article article : (ArrayList<Article>) title.getArticles()) {
                 if (article.getBorrower() == member) {
-                    article.endLoanPeriod();
-                    Bill bill = article.getBill();
-                    
-                    if (bill != null) {
-                    	member.addBill(article.getBill());        	
-                    }  
+                    bringBackArticle(article.getBorrower(), article);
                 }
             }
         }
@@ -129,8 +124,8 @@ public class Library {
              
     }
     
-    public void removeMember(Member member) {
-    	members.remove(member);
+    public boolean removeMember(Member member) {
+    	return members.remove(member);
     }
 
     /**
