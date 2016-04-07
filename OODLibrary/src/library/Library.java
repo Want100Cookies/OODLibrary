@@ -1,6 +1,5 @@
 package library;
 
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -160,6 +159,11 @@ public class Library {
              
     }
     
+    /**
+     * Remove a member from members.
+     * @param member
+     * @return
+     */
     public boolean removeMember(Member member) {
     	return members.remove(member);
     }
