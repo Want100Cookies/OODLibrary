@@ -12,7 +12,6 @@ public class Library {
     public Library() {
         titles = new ArrayList<Title>();
         members = new ArrayList<Member>();
-        addDummyData();
     }
 
     public Article loan(Member member, Title title) {
@@ -105,7 +104,8 @@ public class Library {
     	System.out.println("\tFine amount:\t" + total);
     }
 
-    public double getTotalIncome(int year) { // Todo: add parameter `Bill.typeCost type`
+    public double getTotalIncome(int year) {
+    	//Todo: add parameter `Bill.typeCost type`
         Iterator<Member> it = members.iterator();
         double total = 0.00;
         while(it.hasNext()){
@@ -113,6 +113,7 @@ public class Library {
             Iterator<Bill> bills = m.getBills().iterator();
             while(bills.hasNext()){
                 Bill bill = bills.next();
+                System.out.println(bill.toString());
                 total += bill.getAmount();
             }
         }

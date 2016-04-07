@@ -15,26 +15,25 @@ public class LibraryTest {
 	public void test() {
 		Library lib = new Library();
 		
-        Title title1 = new Title("Harry Potter en de vuurbeker");
+        Title title1 = new Title("Harry Potter en de vuurbeker", Roman.class);
         title1.addArticle(new Roman(title1, "11"));
         title1.addArticle(new Roman(title1, "23"));
-        title1.addArticle(new Popular(title1, "30"));
         lib.addTitle(title1);
         /////////////
-        Title title2 = new Title("30 messteken");
+        Title title2 = new Title("30 messteken", Roman.class);
         Article article1 = new Roman(title2, "2");
         title2.addArticle(article1);
         Article article2 =  new Roman(title2, "52");
         title2.addArticle(article2);
         lib.addTitle(title2);
         /////////////
-        Title title3 = new Title("Schemer");
+        Title title3 = new Title("Schemer", A_Film.class);
         title3.addArticle(new A_Film(title3, "0"));
         title3.addArticle(new A_Film(title3, "4"));
         title3.addArticle(new A_Film(title3, "3"));
         lib.addTitle(title3);
         ////////////
-        Title title4 = new Title("Bad");
+        Title title4 = new Title("Bad", Popular.class);
         title4.addArticle(new Popular(title4, "990"));
         title4.addArticle(new Popular(title4, "993"));
         title4.addArticle(new Popular(title4, "991"));
@@ -65,9 +64,8 @@ public class LibraryTest {
 	    article2.setEndDate(new Date(2016, 4, 9));
 	   // System.out.println(title2.getArticles().get(0).toString());
 	    lib.bringBackArticle(ramon, article2);
-	    
 	    System.out.println("omzet later");
-	    System.out.println(lib.getTotalIncome(2016));
+	    lib.getTotalIncome(1234);
 	    
 	    
 

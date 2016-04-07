@@ -65,4 +65,11 @@ public class Bill {
 	public double getAmount() {
 		return this.amount;
 	}
+	
+	/**
+	 * toString method for testing purposes:
+	 */
+	public String toString(){
+		return "Bill met " + getAmount() + " als waarde en " + getType().toString() + " als type.";
+	}
 }

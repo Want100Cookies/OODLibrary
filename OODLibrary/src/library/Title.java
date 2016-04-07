@@ -29,6 +29,7 @@ public class Title {
 		if (articles.size() > 0) {
 			for (Article article : articles) {
 				if (article.getBorrower() == null) {
+					article.startLoanPeriod();
 					article.setBorrower(member);
 					return article;
 				}
