@@ -1,5 +1,6 @@
 package library;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public abstract class Article {
@@ -27,7 +28,9 @@ public abstract class Article {
 	}
 	
 	public int getLoanPeriod() {		
-		return (int) Math.round((loanEnd.getTime() - loanStart.getTime()) / (double)86400000);
+		//return (int) Math.round((loanEnd.getTime() - loanStart.getTime()) / (double)86400000);
+		//ChronoUnit.DAYS.between(startDate,endDate);
+		return (int) ChronoUnit.DAYS.between(loanStart, loanEnd);
 	}
 	
 	public void startLoanPeriod() {

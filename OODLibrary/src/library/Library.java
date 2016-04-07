@@ -25,6 +25,8 @@ public class Library {
     public void bringBackArticle(Member member, Article article) {
         article.endLoanPeriod();
         Bill bill = article.getBill();
+        System.out.println("Het bedrag van de berekende bill is: " + bill.getAmount());
+        
         
         if (bill != null) {
         	member.addBill(article.getBill());        	

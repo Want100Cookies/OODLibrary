@@ -65,7 +65,7 @@ public class LibraryTest {
 	    System.out.println("omzet nu");
 	    System.out.println(lib.getTotalIncome(2016));
 	    System.out.println("Ramon brengt het boek terug:");
-	    article2.setEndDate(new Date(2016, 4, 7));   
+	    article2.setEndDate(new Date(2016, 4, 8));   
 	   // System.out.println(title2.getArticles().get(0).toString());
 	    lib.bringBackArticle(ramon, article2);
 	    System.out.println("hi" + ramon.getBills().get(0).getAmount());

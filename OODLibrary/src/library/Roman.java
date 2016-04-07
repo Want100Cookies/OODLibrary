@@ -9,8 +9,10 @@ public class Roman extends Book {
 	}
 	
 	public Bill getBill() {
-		if(getLoanPeriod() > 21){
-			int days = getLoanPeriod() - 21;
+		int days = getLoanPeriod();
+		System.out.println("De loan period is: " + days);
+		if(days > 21){
+			days -= 21;
 			double amount = days * 0.25;
 			return new Bill(amount, TypeCost.fine);
 		}
