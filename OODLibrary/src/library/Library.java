@@ -74,28 +74,28 @@ public class Library {
 
 
         Title t = new Title("Harry Potter en de vuurbeker");
-        t.addArticle(new Roman(t));
-        t.addArticle(new Roman(t));
-        t.addArticle(new Roman(t));
+        t.addArticle(new Roman(t, "11"));
+        t.addArticle(new Roman(t, "23"));
+        t.addArticle(new Roman(t, "30"));
         titles.add(t);
         /////////////
         t = new Title("30 messteken");
-        t.addArticle(new Roman(t));
-        t.addArticle(new Roman(t));
+        t.addArticle(new Roman(t, "2"));
+        t.addArticle(new Roman(t, "52"));
         titles.add(t);
         /////////////
         t = new Title("Het mooiste wat er is");
-        t.addArticle(new B_Film(t));
+        t.addArticle(new B_Film(t, "24"));
         titles.add(t);
         ////////////
         t = new Title("Schemer");
-        t.addArticle(new A_Film(t));
+        t.addArticle(new A_Film(t, "0"));
         titles.add(t);
         titles.add(t);
         titles.add(t);
         ////////////
         t = new Title("Bad");
-        t.addArticle(new Popular(t));
+        t.addArticle(new Popular(t, "990"));
         titles.add(t);
         titles.add(t);
         titles.add(t);

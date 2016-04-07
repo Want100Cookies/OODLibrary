@@ -15,11 +15,6 @@ public abstract class Article {
 		this.UID = UID;
 	}
 	
-		public Article(Title title) {
-		this.title = title;
-		UID = "wat is deze?";
-	}
-	
 	public Member getBorrower() {
 		return this.borrower;
 	}

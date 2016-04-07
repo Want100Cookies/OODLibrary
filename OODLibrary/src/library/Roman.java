@@ -4,8 +4,8 @@ import library.Bill.TypeCost;
 
 public class Roman extends Book {
 
-	public Roman(Title title) {
-		super(title);
+	public Roman(Title title, String UID) {
+		super(title, UID);
 	}
 	
 	public Bill getBill() {

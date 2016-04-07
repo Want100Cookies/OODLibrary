@@ -4,8 +4,8 @@ import library.Bill.TypeCost;
 
 public class StudyBook extends Book{
 
-	public StudyBook(Title title) {
-		super(title);
+	public StudyBook(Title title, String UID) {
+		super(title, UID);
 	}
 	
 	public Bill getBill() {
