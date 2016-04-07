@@ -1,5 +1,7 @@
 package library;
 
+import library.Bill.TypeCost;
+
 public class A_Film extends DVD {
 
 	public A_Film(Title title, String UID) {
@@ -7,6 +9,8 @@ public class A_Film extends DVD {
 	}
 	
 	public Bill getBill() {
-		return null;
+		int days = getLoanPeriod();
+	    double amount = days * 2;
+		return new Bill(amount, TypeCost.fee);
 	}
 }

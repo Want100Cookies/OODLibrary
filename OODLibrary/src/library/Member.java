@@ -32,4 +32,8 @@ public class Member {
 	public void addBill(Bill bill) {
 		bills.add(bill);
 	}
+	
+	public void getBills() {
+		
+	}
 }
