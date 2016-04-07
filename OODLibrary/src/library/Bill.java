@@ -2,11 +2,13 @@ package library;
 
 import java.util.Date;
 
+import org.joda.time.DateTime;
+
 public class Bill {
 	private double amount;	// Amount of the bill
 	private boolean paid;	// Has the bill been paid
-	private Date warning1;	// Date of the first warning
-	private Date warning2;	// Date of the second warning
+	private DateTime warning1;	// Date of the first warning
+	private DateTime warning2;	// Date of the second warning
 	private TypeCost type;	// The type of this cost
 	
 	// Enum of containing fine or fee
@@ -47,10 +49,10 @@ public class Bill {
 	 */
 	public void giveWarning() {
 		if (!hasWarning1()) {
-			warning1 = new Date();
+			warning1 = new DateTime();
 			
 		} else if (warning2 == null) {
-			warning2 = new Date();
+			warning2 = new DateTime();
 		}
 	}
 	
@@ -64,9 +66,9 @@ public class Bill {
 	
 	/**
 	 * Get the date of the second warning
-	 * @return Date
+	 * @return DateTime
 	 */
-	public Date getWarning2() {
+	public DateTime getWarning2() {
 		return this.warning2;
 	}
 	

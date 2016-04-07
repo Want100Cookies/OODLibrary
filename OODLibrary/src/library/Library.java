@@ -4,12 +4,15 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 import library.Bill.TypeCost;
 public class Library {
-	//alle titles in de library
+	//all titles in the library.
     private ArrayList<Title> titles;
     
-    //alle members die lid zijn van de bibliotheek.
+    //all members of this library.
     private ArrayList<Member> members;
 
     public Library() {
@@ -17,14 +20,29 @@ public class Library {
         members = new ArrayList<Member>();
     }
 
+    /**
+     * Called when a member wants to loan a title. Then article  
+     * @param member the member that is going to loan
+     * @param title The title that is (if available) going to be borrowed.
+     * @return
+     */
     public Article loan(Member member, Title title) {
         return title.loan(member);
     }
 
+    /**
+     * Pay a bill.
+     * @param bill
+     */
     public void payBill(Bill bill) {
         bill.pay();
     }
 
+    /**
+     * Let a member bring back an article.
+     * @param member the member in case.
+     * @param article the article he has and wants to bring back.
+     */
     public void bringBackArticle(Member member, Article article) {
         article.endLoanPeriod();
         Bill bill = article.getBill();
@@ -36,6 +54,10 @@ public class Library {
         }        
     }
 
+    /**
+     * Let the member bring all articles back.
+     * @param member the member in case.
+     */
     public void bringBackAllArticles(Member member) {
         for (Title title : titles){
             for (Article article : (ArrayList<Article>) title.getArticles()) {
@@ -47,7 +69,7 @@ public class Library {
     }
 
     /**
-     * Returnt alle fines die elke member heeft, betaald of onbetaald.
+     * Returns every fines that a member has, paid or unpaid.
      * @return
      */
     public ArrayList<Bill> getFines() {
@@ -68,6 +90,11 @@ public class Library {
         return returnList;
     }
 
+    /**
+     * Send everyone with a fine on an article higher than €10,- a warning letter.
+     * If the total of all the fines of a member is higher than €100,- a second letter is sent.
+     * If there isn't a return of the books within two weeks, a bailiff is sent. 
+     */
     public void sendWarningLetters() {
     	
     	for(Member member : members){
@@ -89,7 +116,8 @@ public class Library {
     					 System.out.println("Secondly, you now have 2 weeks to pay your bill, otherwise it will be sent to the bailiff.");
     					 System.out.println("-Stenden Library"); 
     				 }
-    				 if(bill.getAmount() >= 100.00 && bill.getWarning2().getTime() + 1209600000 >= System.currentTimeMillis() ) {
+    				 //amount of days >= 14:
+    				 if(bill.getAmount() >= 100.00 && Days.daysBetween(bill.getWarning2(), new DateTime()).getDays() >= 14 ) {
     					 sendMemberToBailiff(member);	 
     				 }
     			}
