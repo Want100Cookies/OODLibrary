@@ -4,9 +4,8 @@ public class Popular extends CD {
 
 	public Popular(Title title) {
 		super(title);
-	}
-
-	public Bill getBill() {
-		return null;
+		
+		this.startAmount = 1.00;
+		this.weeklyAmount = 2.00;
 	}
 }
