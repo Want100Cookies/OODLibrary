@@ -96,7 +96,7 @@ public class Library {
 
     public static void main(String[] args) {
         System.out.println("Library started");
-        Library lib = new Library();       
+             
     }
 
     /**
@@ -114,10 +114,6 @@ public class Library {
         t.addArticle(new Roman(t, "52"));
         titles.add(t);
         /////////////
-        t = new Title("Het mooiste wat er is");
-        t.addArticle(new B_Film(t, "24"));
-        titles.add(t);
-        ////////////
         t = new Title("Schemer");
         t.addArticle(new A_Film(t, "0"));
         titles.add(t);
@@ -141,6 +137,21 @@ public class Library {
         
         m = new Member("Ramon", "Valk", "bij kevin(?)", "ramon@valkenier.com", new Date(1960, 3, 14));
         members.add(m);
-
+    }
+    
+    /**
+     * Add een title toe aan Titles.
+     * @param T
+     */
+    public void addTitle(Title t){
+    	titles.add(t);
+    }
+    
+    /**
+     * Add een title toe aan Titles.
+     * @param T
+     */
+    public void addMember(Member m){
+    	members.add(m);
     }
 }

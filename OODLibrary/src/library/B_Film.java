@@ -5,7 +5,7 @@ public class B_Film extends DVD {
 	protected double afterThreeDays;
 	protected double total;
 	
-	public B_Film(Title title) {
+	public B_Film(Title title, String UID) {
 		super(title, UID);
 		
 		this.startAmount = 1.00;
@@ -13,7 +13,7 @@ public class B_Film extends DVD {
 	}
 
 	public Bill getBill() {
-		int days = this.getLoanPeriod;
+		int days = this.getLoanPeriod();
 		double amount = startAmount;
 		
 		if(days > 3) {
