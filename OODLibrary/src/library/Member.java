@@ -25,6 +25,35 @@ public class Member {
 		return this.firstName + " " + this.lastName;
 	}
 	
+	public void setName(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	public String getAddress() {
+		return this.address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public Date getBirthDay() {
+		return this.birthDay;
+	}
+	
+	public void setBirthDay(Date date) {
+		this.birthDay = date;
+	}
+	
 	public ArrayList<Bill> getBills() {
 		return this.bills;
 	}
