@@ -1,4 +1,4 @@
-package library;
+ 
 
 import java.util.Date;
 
@@ -13,11 +13,17 @@ public class Bill {
 		fine, fee
 	}
 	
+	/**
+	 * note: het gebruik van enums is kut in java
+	 */
 	public Bill(double amount, TypeCost type) {
 		this.amount = amount;
 		this.type = type;
 	}
 	
+	/**
+	 * de bill wordt betaald:
+	 */
 	public void pay() {
 		this.paid = true;
 	}
@@ -50,5 +56,4 @@ public class Bill {
 	public double getAmount() {
 		return this.amount;
 	}
-
 }

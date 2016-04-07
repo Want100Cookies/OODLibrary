@@ -1,4 +1,4 @@
-package library;
+ 
 
 import java.util.ArrayList;
 
@@ -31,4 +31,11 @@ public class Title {
 		
 		return null;
 	}
+	
+	/**
+	 * extra method buiten class diagram om:
+	 */
+	public String getTitle(){
+	   return name;
+	   }
 }

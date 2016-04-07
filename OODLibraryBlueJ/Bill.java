@@ -56,5 +56,4 @@ public class Bill {
 	public double getAmount() {
 		return this.amount;
 	}
-
 }
