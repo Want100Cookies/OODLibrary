@@ -109,10 +109,13 @@ public class Library {
 
     public double getTotalIncome(int year) {
     	double total = 0;
-    	
+    	System.out.println("Started iteration:");
     	for (Member member : members) {
     		for (Bill bill : member.getBills()) {
-    			total += bill.getAmount();
+    			if(bill.isPaid()){
+    				total += bill.getAmount();
+    				System.out.println(total);
+    			}
     		}
     	}
     	

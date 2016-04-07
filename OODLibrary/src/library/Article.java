@@ -35,7 +35,9 @@ public abstract class Article {
 	}
 	
 	public void endLoanPeriod() {
+		if(loanEnd == null){
 		loanEnd = new Date();
+		}
 		setBorrower(null);
 	}
 	
