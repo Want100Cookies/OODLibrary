@@ -23,7 +23,7 @@ public class LibraryTest {
         /////////////
         Title title2 = new Title("30 messteken");
         title2.addArticle(new Roman(title2, "2"));
-        t.addArticle(new Roman(title2, "52"));
+        title2.addArticle(new Roman(title2, "52"));
         lib.addTitle(title2);
         /////////////
         Title title3 = new Title("Schemer");
@@ -51,8 +51,13 @@ public class LibraryTest {
 	    lib.addMember(ramon);
 	    
 	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
-	    		+ "geprobeerd te lenen" + lib.loan(ramon, title2).toString());
-	    
+	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
+	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
+	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
+	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
+	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
+	    System.out.println("Persoon " + ramon.getName() + " heeft het volgende boek ("
+	    		+ "geprobeerd) te lenen met uid: " + lib.loan(ramon, title2).toString() + ".");
 
 	}
 

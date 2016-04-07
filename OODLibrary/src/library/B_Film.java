@@ -1,5 +1,7 @@
 package library;
 
+import library.Bill.TypeCost;
+
 public class B_Film extends DVD {
 	protected double startAmount;
 	protected double afterThreeDays;
@@ -24,6 +26,7 @@ public class B_Film extends DVD {
 		else {
 			total += days * this.startAmount;
 		}
-		return total;
+		//return total;
+		return new Bill( total, TypeCost.fee);
 	}
 }

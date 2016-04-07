@@ -14,6 +14,10 @@ public abstract class Article {
 		this.UID = UID;
 	}
 	
+	public String toString(){
+		return UID;
+	}
+	
 	public Member getBorrower() {
 		return this.borrower;
 	}
@@ -33,6 +37,15 @@ public abstract class Article {
 	public void endLoanPeriod() {
 		loanEnd = new Date();
 		setBorrower(null);
+	}
+	
+	/**
+	 * for testing purposes.
+	 * @param d
+	 */
+	public void setLoanPeriod(Date d){
+		loanEnd = d;
+	}
 	}
 	
 	abstract Bill getBill();
