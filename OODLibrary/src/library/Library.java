@@ -61,8 +61,33 @@ public class Library {
         return returnList;
     }
 
-    public void sendWarningLetters(ArrayList<Bill> bills) {
-
+    public void sendWarningLetters() {
+    	
+    for(Member member : members){
+    	
+    		for (Bill bill : member.getBills()) {
+    			if (bill.getType() == TypeCost.fine) {
+    				 if(bill.getAmount() >= 10.00 && !bill.hasWarning1()) {
+    					 bill.giveWarning();
+    					 System.out.println("**Official Stenden Library Warning**");
+    					 System.out.println("You '" + member.getName() + "' hereby recieve your first warning.");
+    					 System.out.println("This means you have a bill of €10,- or more, please pay your bill on time.");
+    					 System.out.println("-Stenden Library");
+    				 }
+    				 if(bill.getAmount() >= 100.00 && bill.hasWarning1() && bill.getWarning2() == null ) {
+    					 bill.giveWarning();
+    					 System.out.println("**Official Stenden Library Warning**");
+    					 System.out.println("You '" + member.getName() + "' hereby recieve your second warning.");
+    					 System.out.println("This means you have a bill of €100,- or more, please pay your bill on time.");
+    					 System.out.println("Secondly, you now have 2 weeks to pay your bill, otherwise it will be sent to the bailiff.");
+    					 System.out.println("-Stenden Library"); 
+    				 }
+    				 if(bill.getAmount() >= 100.00 && bill.getWarning2().getTime() + 1209600000 >= System.currentTimeMillis() ) {
+    					 sendMemberToBailiff(member);	 
+    				 }
+    			}
+    		}
+    	}
     }
 
     public void sendMemberToBailiff(Member member) {
