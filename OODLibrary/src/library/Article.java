@@ -5,7 +5,6 @@ import java.util.Date;
 public abstract class Article {
 	private Title title;
 	private String UID;
-	//note to Pascal: wat is deze hierboven?
 	private Member borrower;
 	private Date loanStart;
 	private Date loanEnd;

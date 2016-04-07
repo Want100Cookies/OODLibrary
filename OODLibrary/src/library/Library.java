@@ -3,6 +3,8 @@ package library;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import library.Bill.TypeCost;
 public class Library {
     private ArrayList<Title> titles;
     private ArrayList<Member> members;
@@ -37,8 +39,26 @@ public class Library {
         }
     }
 
+    /**
+     * Returnt alle fines die elke member heeft, betaald of onbetaald.
+     * @return
+     */
     public ArrayList<Bill> getFines() {
-        return null;
+    	Iterator<Member> it = members.iterator();
+    	ArrayList<Bill> returnList = new ArrayList<>();
+    	while(it.hasNext()){
+            Member m = it.next();
+            Iterator<Bill> bills = m.getBills().iterator();
+            
+            while(bills.hasNext()){
+                Bill bill = bills.next();
+                
+                if(bill.getType() == TypeCost.fine){
+                	returnList.add(bill);
+                }
+            }
+        }
+        return returnList;
     }
 
     public void sendWarningLetters(ArrayList<Bill> bills) {
@@ -65,14 +85,13 @@ public class Library {
 
     public static void main(String[] args) {
         System.out.println("Library started");
+        Library lib = new Library();       
     }
 
     /**
      * Add dummy data method:
      */
     public void addDummyData(){
-
-
         Title t = new Title("Harry Potter en de vuurbeker");
         t.addArticle(new Roman(t, "11"));
         t.addArticle(new Roman(t, "23"));
@@ -108,6 +127,7 @@ public class Library {
         members.add(m);
         m = new Member("Rik", "Hassing", "1 uur fietsen", "rik@hassing.com", new Date(1985, 9, 14));
         members.add(m);
+        
         m = new Member("Ramon", "Valk", "bij kevin(?)", "ramon@valkenier.com", new Date(1960, 3, 14));
         members.add(m);
 
