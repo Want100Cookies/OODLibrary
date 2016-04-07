@@ -2,32 +2,27 @@ package library;
 
 import java.util.ArrayList;
 
-public class Title {
-	private String name;
-	private Class type;
-	private ArrayList<Article> articles;
+public class Title<T extends Article> {
 	
-	public Title(String name, Class type) {
+	private String name;
+	private ArrayList<T> articles;
+	
+	public Title(String name) {
 		this.name = name;
-		this.type = type;
-		articles = new ArrayList<Article>();
+		articles = new ArrayList<T>();
 	}
 	
-	public void addArticle(Article article) {
-		if (article.getClass() != type) {
-			throw new IllegalArgumentException("Article is not of correct type");
-		}
-		
+	public void addArticle(T article) {		
 		articles.add(article);
 	}
 	
-	public ArrayList<Article> getArticles() {
+	public ArrayList<T> getArticles() {
 		return this.articles;
 	}
 	
-	public Article loan(Member member) {
+	public T loan(Member member) {
 		if (articles.size() > 0) {
-			for (Article article : articles) {
+			for (T article : articles) {
 				if (article.getBorrower() == null) {
 					article.startLoanPeriod();
 					article.setBorrower(member);

@@ -15,25 +15,26 @@ public class LibraryTest {
 	public void test() {
 		Library lib = new Library();
 		
-        Title title1 = new Title("Harry Potter en de vuurbeker", Roman.class);
+        Title<Roman> title1 = new Title("Harry Potter en de vuurbeker");
         title1.addArticle(new Roman(title1, "11"));
         title1.addArticle(new Roman(title1, "23"));
+        title1.addArticle(new Roman(title1, "30"));
         lib.addTitle(title1);
         /////////////
-        Title title2 = new Title("30 messteken", Roman.class);
-        Article article1 = new Roman(title2, "2");
+        Title<Roman> title2 = new Title("30 messteken");
+        Roman article1 = new Roman(title2, "2");
         title2.addArticle(article1);
-        Article article2 =  new Roman(title2, "52");
+        Roman article2 =  new Roman(title2, "52");
         title2.addArticle(article2);
         lib.addTitle(title2);
         /////////////
-        Title title3 = new Title("Schemer", A_Film.class);
+        Title<A_Film> title3 = new Title("Schemer");
         title3.addArticle(new A_Film(title3, "0"));
         title3.addArticle(new A_Film(title3, "4"));
         title3.addArticle(new A_Film(title3, "3"));
         lib.addTitle(title3);
         ////////////
-        Title title4 = new Title("Bad", Popular.class);
+        Title<Popular> title4 = new Title("Bad");
         title4.addArticle(new Popular(title4, "990"));
         title4.addArticle(new Popular(title4, "993"));
         title4.addArticle(new Popular(title4, "991"));

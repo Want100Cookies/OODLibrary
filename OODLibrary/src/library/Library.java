@@ -24,15 +24,23 @@ public class Library {
 
     public void bringBackArticle(Member member, Article article) {
         article.endLoanPeriod();
-        member.addBill(article.getBill());
+        Bill bill = article.getBill();
+        
+        if (bill != null) {
+        	member.addBill(article.getBill());        	
+        }        
     }
 
     public void bringBackAllArticles(Member member) {
         for (Title title : titles){
-            for (Article article : title.getArticles()) {
+            for (Article article : (ArrayList<Article>) title.getArticles()) {
                 if (article.getBorrower() == member) {
                     article.endLoanPeriod();
-                    member.addBill(article.getBill());
+                    Bill bill = article.getBill();
+                    
+                    if (bill != null) {
+                    	member.addBill(article.getBill());        	
+                    }  
                 }
             }
         }
@@ -105,24 +113,24 @@ public class Library {
     }
 
     public double getTotalIncome(int year) {
-    	//Todo: add parameter `Bill.typeCost type`
-        Iterator<Member> it = members.iterator();
-        double total = 0.00;
-        while(it.hasNext()){
-            Member m = it.next();
-            Iterator<Bill> bills = m.getBills().iterator();
-            while(bills.hasNext()){
-                Bill bill = bills.next();
-                System.out.println(bill.toString());
-                total += bill.getAmount();
-            }
-        }
-        return total;
+    	double total = 0;
+    	
+    	for (Member member : members) {
+    		for (Bill bill : member.getBills()) {
+    			total += bill.getAmount();
+    		}
+    	}
+    	
+    	return total;
     }
 
     public static void main(String[] args) {
         System.out.println("Library started");
              
+    }
+    
+    public void removeMember(Member member) {
+    	members.remove(member);
     }
 
     /**
