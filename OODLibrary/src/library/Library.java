@@ -6,7 +6,10 @@ import java.util.Iterator;
 
 import library.Bill.TypeCost;
 public class Library {
+	//alle titles in de library
     private ArrayList<Title> titles;
+    
+    //alle members die lid zijn van de bibliotheek.
     private ArrayList<Member> members;
 
     public Library() {
@@ -25,10 +28,10 @@ public class Library {
     public void bringBackArticle(Member member, Article article) {
         article.endLoanPeriod();
         Bill bill = article.getBill();
-        System.out.println("Het bedrag van de berekende bill is: " + bill.getAmount());
-        
-        
+               
         if (bill != null) {
+            System.out.println("Het bedrag van de berekende bill is: " + bill.getAmount());
+
         	member.addBill(article.getBill());        	
         }        
     }
@@ -109,14 +112,14 @@ public class Library {
     	System.out.println("\tFine amount:\t" + total);
     }
 
-    public double getTotalIncome(int year) {
+    public double getTotalIncome() {
     	double total = 0;
     	System.out.println("Started iteration:");
     	for (Member member : members) {
     		for (Bill bill : member.getBills()) {
     			if(bill.isPaid()){
     				total += bill.getAmount();
-    				System.out.println(total);
+    				//System.out.println(total);
     			}
     		}
     	}

@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 
 public class LibraryTest {
@@ -63,14 +64,17 @@ public class LibraryTest {
 	    System.out.println(lib.loan(ramon, title2));
 	    
 	    System.out.println("omzet nu");
-	    System.out.println(lib.getTotalIncome(2016));
+	    System.out.println(lib.getTotalIncome());
 	    System.out.println("Ramon brengt het boek terug:");
-	    article2.setEndDate(new Date(2016, 4, 8));   
+	    article2.setEndDate(new DateTime(2016, 5, 23, 23, 59));   
 	   // System.out.println(title2.getArticles().get(0).toString());
 	    lib.bringBackArticle(ramon, article2);
-	    System.out.println("hi" + ramon.getBills().get(0).getAmount());
+	    ramon.getBills().get(0).pay();
+	    for (Bill bill : ramon.getBills())
+	    //	System.out.println("hi" + bill.getAmount());
+	    
 	    System.out.println("omzet later");
-	    System.out.println(lib.getTotalIncome(2016));
+	    System.out.println(lib.getTotalIncome());
 	    
 	    
 

@@ -1,15 +1,17 @@
 package library;
 
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import org.joda.time.DateTime;
+import org.joda.time.Days;
 
 public abstract class Article {
 	private Title title;
 	private String UID;
 	private Member borrower;
-	private Date loanStart;
-	private Date loanEnd;
+	private DateTime loanStart;
+	private DateTime loanEnd;
 	
 	public Article(Title title, String UID) {
 		this.title = title;
@@ -29,18 +31,18 @@ public abstract class Article {
 	}
 	
 	public int getLoanPeriod() {		
-		long diff = loanEnd.getTime() - loanStart.getTime();//in Milli seconds
-		return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
-		Days days = Days.daysBetween(start, end);
+		//Days days = Days.daysBetween(loanStart, loanEnd);
+		int days = Days.daysBetween(new DateTime(loanStart), new DateTime(loanEnd)).getDays();
+		return days;
 	}
 	
 	public void startLoanPeriod() {
-		loanStart = new Date();
+		loanStart = new DateTime();
 	}
 	
 	public void endLoanPeriod() {
 		if(loanEnd == null){
-			loanEnd = new Date();
+			loanEnd = new DateTime();
 			System.out.println("loanEnd was null");
 		}
 		setBorrower(null);
@@ -50,7 +52,7 @@ public abstract class Article {
 	 * for testing purposes.
 	 * @param d
 	 */
-	public void setEndDate(Date d){
+	public void setEndDate(DateTime d){
 		loanEnd = d;
 	}
 	
