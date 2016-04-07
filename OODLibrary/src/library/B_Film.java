@@ -20,12 +20,10 @@ public class B_Film extends DVD {
 			days = days - 3;
 			total += 3 * this.startAmount;
 			total += days * this.afterThreeDays;
-			return total;
 		}
 		else {
 			total += days * this.startAmount;
-			return total;
 		}
-		
+		return total;
 	}
 }
